@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private Letter</title>
+  <style>
+    body {
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    input {
+      padding: 10px;
+      width: 200px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #e75480;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>🔐 Enter Password</h2>
+  <input type="password" id="pwd" placeholder="Password">
+  <br>
+  <button onclick="check()">Open Letter</button>
+</div>
+
+<script>
+  function check() {
+    var password = "akka123"; // 👉 change password here
+    if (document.getElementById("pwd").value === password) {
+      window.location.href = "letter.html";
+    } else {
+      alert("Wrong password 💔");
+    }
+  }
+</script>
+
+</body>
+</html>
