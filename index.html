@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Sister ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .screen {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .password-box {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+    }
+
+    .password-box img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #fff;
+    }
+
+    input {
+      padding: 12px;
+      width: 80%;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 20px;
+      background: #ff5fa2;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3f8e;
+    }
+
+    .letter {
+      max-width: 600px;
+      background: rgba(255,255,255,0.12);
+      padding: 25px;
+      border-radius: 15px;
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Password Screen -->
+  <div class="screen active" id="lockScreen">
+    <div class="password-box">
+      <!-- 👉 Inga unga photo link podunga -->
+      <img src="https://i.imgur.com/yourimage.jpg" alt="photo">
+      <h2>Enter Password 💖</h2>
+      <input type="password" id="password" placeholder="Password">
+      <br>
+      <button onclick="unlock()">Open</button>
+    </div>
+  </div>
+
+  <!-- Letter Screen -->
+  <div class="screen" id="letterScreen">
+    <div class="letter">
+      <h2>Dear Sister ❣️</h2><br>
+
+      Happy New Year 💟💌<br><br>
+
+      I hope this year will be the best year for us 🥰💞.  
+      2024 end & 2025 start enaku yepadi irundhuchu nu ungalukke theriyum…  
+      aana unga kooda attach aanathunala naan meendu vandhen 🥹❤️‍🩹.<br><br>
+
+      Neenga enaku oru healer maari.  
+      Neenga illa na naan enna aayiruppen nu enakke therla 😩🥹.<br><br>
+
+      Ungala paatha odane respect, love ellam automatic-aa varum 💕.  
+      Past-la naan panina sila thappukku romba sorry kaa 😣🙁.<br><br>
+
+      Enaku unga mela irukkura anbu romba pure.  
+      Neenga eppovum hurt aaga koodathu nu thaan naan ninaikuren 🥺❤️‍🩹.<br><br>
+
+      And that nickname…  
+      adhu enaku oru emotion 😌🥹  
+      **My Treasure** 🪙❤️‍🩹<br><br>
+
+      Eppovum neenga kankalangave kurathu 
+      **My Princess** 💟🫂<br><br>
+
+      Ippadikku,<br>
+      Ungal anbuu 💕<br>
+      **Bantu** 🥹❤️‍🩹🫂
+    </div>
+  </div>
+
+  <!-- Background Audio -->
+  <audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+  <script>
+    const correctPassword = "akka123"; // 👉 password change pannalaam
+    const audio = document.getElementById("bgMusic");
+
+    function unlock() {
+      const entered = document.getElementById("password").value;
+
+      if (entered === correctPassword) {
+        document.getElementById("lockScreen").classList.remove("active");
+        document.getElementById("letterScreen").classList.add("active");
+
+        audio.volume = 0;
+        audio.play();
+
+        // fade in
+        let v = 0;
+        const fadeIn = setInterval(() => {
+          if (v < 0.5) {
+            v += 0.01;
+            audio.volume = v;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 100);
+      } else {
+        alert("Wrong password 😅");
+      }
+    }
+
+    // fade out when leaving
+    window.addEventListener("beforeunload", () => {
+      let v = audio.volume;
+      const fadeOut = setInterval(() => {
+        if (v > 0) {
+          v -= 0.02;
+          audio.volume = v;
+        }
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>
