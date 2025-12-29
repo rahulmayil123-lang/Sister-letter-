@@ -37,6 +37,27 @@
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <div class="letter">
+  <button onclick="playMusic()" style="
+  background:#ff4f81;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-bottom:15px;
+">
+▶️ Play Music
+</button>
+
+<audio id="bgm" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function playMusic() {
+    document.getElementById("bgm").play();
+  }
+</script>
   <h1>Dear Sister ❣️</h1>
 
   <p>
