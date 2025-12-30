@@ -192,6 +192,42 @@ body::before {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
+    .gift-container {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.gift-box {
+  font-size: 70px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.gift-text {
+  color: #fff;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.gift-message {
+  display: none;
+  margin-top: 30px;
+  background: rgba(255,255,255,0.12);
+  padding: 20px;
+  border-radius: 16px;
+  color: #fff;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
   </style>
 </head>
 
@@ -230,6 +266,21 @@ i hope you this year will be a best year for us 🥰💞.
       Bantu🥹❤️‍🩹🫂
     </div>
   </div>
+  <div class="gift-container">
+  <div class="gift-box" onclick="openGift()">
+    🎁
+  </div>
+  <p class="gift-text">Tap to open your surprise</p>
+</div>
+
+<div id="giftMessage" class="gift-message">
+  <h2>💝 Just for you, Akka 💝</h2>
+  <p>
+    No matter what…  
+    I’ll always stand with you 🤍  
+    You are my strength, my comfort, my family 🫂
+  </p>
+</div>
 <div class="gift-section">
   <div class="gift-box" onclick="openGift()">🎁</div>
   <p class="gift-text">Tap to open your surprise</p>
@@ -293,5 +344,12 @@ function openGift() {
   document.getElementById('giftMessage').style.display = 'block';
 }
 </script>
+  <script>
+function openGift() {
+  document.querySelector('.gift-box').style.display = 'none';
+  document.querySelector('.gift-text').style.display = 'none';
+  document.getElementById('giftMessage').style.display = 'block';
+}
+  </script>
 </body>
 </html>
