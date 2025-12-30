@@ -150,81 +150,82 @@ body::before {
 
   overflow-y: auto; /* TEXT SCROLL ONLY */
 }
-    /* GIFT SECTION */
-.gift-section {
-  margin-top: 40px;
-  text-align: center;
-}
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      background:#fff0f5;
+      font-family:Arial;
+      overflow:hidden;
+    }
+    .box{
+      text-align:center;
+    }
+    input{
+      padding:10px;
+      font-size:16px;
+    }
+    button{
+      padding:10px 20px;
+      margin-top:10px;
+      font-size:16px;
+    }
+    .heart{
+      position:absolute;
+      font-size:24px;
+      animation: fly 2s linear forwards;
+    }
+    @keyframes fly{
+      0%{transform:translateY(0); opacity:1;}
+      100%{transform:translateY(-200px); opacity:0;}
+    }
+  </style>
+</head>
 
-.gift-box {
-  font-size: 70px;
-  cursor: pointer;
-  animation: bounce 1.8s infinite;
-  display: inline-block;
-}
+<body>
+  <div class="box">
+    <h2>Akka ❤️</h2>
+    <p>Password podu 😊</p>
+    <input type="password" id="pwd">
+    <br>
+    <button onclick="check()">Open</button>
+  </div>
 
-.gift-text {
-  color: #fff;
-  margin-top: 10px;
-  font-size: 14px;
-  opacity: 0.8;
-}
+<script>
+  function check(){
+    let p = document.getElementById("pwd").value;
+    if(p === "akka123"){   // 👉 inga password change pannalam
+      hearts();
+      setTimeout(()=>{
+        document.body.innerHTML =
+        "<h1>❤️ Surprise for you Akka ❤️</h1>";
+      },1500);
+    }else{
+      alert("Wrong password 😅");
+    }
+  }
 
-/* BOUNCE ANIMATION */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* HIDDEN MESSAGE */
-.gift-message {
-  display: none;
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  color: #fff;
-  animation: fadeIn 1.5s ease;
-}
-
-/* FADE IN */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-    .gift-container {
-  text-align: center;
-  margin: 50px 0;
-}
-
-.gift-box {
-  font-size: 70px;
-  cursor: pointer;
-  animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-.gift-text {
-  color: #fff;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-.gift-message {
-  display: none;
-  margin-top: 30px;
-  background: rgba(255,255,255,0.12);
-  padding: 20px;
-  border-radius: 16px;
-  color: #fff;
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
+  function hearts(){
+    for(let i=0;i<30;i++){
+      let h = document.createElement("div");
+      h.className="heart";
+      h.innerText="❤️";
+      h.style.left=Math.random()*100+"vw";
+      h.style.top="60vh";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),2000);
+    }
+  }
+</script>
+</body>
+</html>
+    @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
