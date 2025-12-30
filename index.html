@@ -9,7 +9,7 @@
     html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* FULL SCROLL OFF */
+  overflow: hidden; /* page scroll off */
     }
     * {
       margin: 0;
@@ -138,14 +138,17 @@ body::before {
 }
 .content {
   max-width: 92%;
+  max-height: 85vh; /* VERY IMPORTANT */
   padding: 22px;
-  background: rgba(0, 0, 0, 0.99); /* 99% DARK */
+  background: rgba(0, 0, 0, 0.99);
   color: #ffffff;
   border-radius: 18px;
   font-size: 15px;
   line-height: 1.6;
   text-align: center;
   box-shadow: 0 0 30px rgba(0,0,0,0.9);
+
+  overflow-y: auto; /* TEXT SCROLL ONLY */
 }
   </style>
 </head>
