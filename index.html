@@ -150,6 +150,48 @@ body::before {
 
   overflow-y: auto; /* TEXT SCROLL ONLY */
 }
+    /* GIFT SECTION */
+.gift-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.gift-box {
+  font-size: 70px;
+  cursor: pointer;
+  animation: bounce 1.8s infinite;
+  display: inline-block;
+}
+
+.gift-text {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* BOUNCE ANIMATION */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* HIDDEN MESSAGE */
+.gift-message {
+  display: none;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #fff;
+  animation: fadeIn 1.5s ease;
+}
+
+/* FADE IN */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
   </style>
 </head>
 
@@ -188,7 +230,19 @@ i hope you this year will be a best year for us 🥰💞.
       Bantu🥹❤️‍🩹🫂
     </div>
   </div>
+<div class="gift-section">
+  <div class="gift-box" onclick="openGift()">🎁</div>
+  <p class="gift-text">Tap to open your surprise</p>
+</div>
 
+<div class="gift-message" id="giftMessage">
+  <h2>💖 Surprise 💖</h2>
+  <p>
+    This letter is just words…  
+    but my love, respect, and gratitude for you are endless 🤍  
+    You will always be my safe place, Akka 🫂
+  </p>
+</div>
   <!-- Background Audio -->
   <audio id="bgMusic" src="https://files.catbox.moe/votfm8.mp3"></audio>
 
@@ -232,6 +286,12 @@ i hope you this year will be a best year for us 🥰💞.
       }, 100);
     });
   </script>
-
+<script>
+function openGift() {
+  document.querySelector('.gift-box').style.display = 'none';
+  document.querySelector('.gift-text').style.display = 'none';
+  document.getElementById('giftMessage').style.display = 'block';
+}
+</script>
 </body>
 </html>
